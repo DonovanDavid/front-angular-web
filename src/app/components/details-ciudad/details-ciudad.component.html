@@ -1,0 +1,70 @@
+<div *ngIf="viewMode; else editable">
+  <div *ngIf="currentTutorial">
+    <h4>Personas</h4>
+    <div>
+      <label><strong>Nombres:</strong></label> {{ currentTutorial.nombres }}
+    </div>
+    <div>
+      <label><strong>Apellidos:</strong></label>
+      {{ currentTutorial.apellidos }}
+    </div>
+
+    <a
+      class="badge badge-warning"
+      routerLink="/tutorials/{{ currentTutorial.personaId }}"
+    >
+      Edit
+    </a>
+  </div>
+
+  <div *ngIf="!currentTutorial">
+    <br />
+    <p>Please click on a Tutorial...</p>
+  </div>
+</div>
+
+<ng-template #editable>
+  <div *ngIf="currentTutorial" class="edit-form">
+    <h4>Edición</h4>
+    <form>
+      <div class="form-group">
+        <label for="title">Nombres</label>
+        <input
+          type="text"
+          class="form-control"
+          id="nombres"
+          [(ngModel)]="currentTutorial.nombres"
+          name="nombres"
+        />
+      </div>
+      <div class="form-group">
+        <label for="description">Apellidos</label>
+        <input
+          type="text"
+          class="form-control"
+          id="apellidos"
+          [(ngModel)]="currentTutorial.apellidos"
+          name="apellidos"
+        />
+      </div>
+    </form>
+
+
+    <button class="badge badge-danger mr-2" (click)="deleteTutorial()">
+      Delete
+    </button>
+
+    <button
+      type="submit"
+      class="badge badge-success mb-2"
+      (click)="updateTutorial()"
+    >
+      Update
+    </button>
+  </div>
+
+  <div *ngIf="!currentTutorial">
+    <br />
+    <p>Cannot access this Tutorial...</p>
+  </div>
+</ng-template>

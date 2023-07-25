@@ -1,0 +1,122 @@
+<div>
+  <div class="submit-form">
+    <div *ngIf="!submitted">
+
+      <div>
+        <label for="title">Nombres:</label>
+        <input
+          type="text"
+          class="form-control"
+          id="nombres"
+          required
+          [(ngModel)]="tutorial.nombres"
+          name="nombres"
+        />
+      </div>
+      <div>
+        <label for="title">Apellidos:</label>
+        <input
+          type="text"
+          class="form-control"
+          id="apellidos"
+          required
+          [(ngModel)]="tutorial.apellidos"
+          name="apellidos"
+        />
+      </div>
+      <div>
+        <label for="title">Documento:</label>
+        <input
+          type="number"
+          class="form-control"
+          id="documento"
+          required
+          [(ngModel)]="tutorial.documento"
+          name="documento"
+        />
+      </div>
+      <div>
+        <label for="title">fechaNacimiento:</label>
+        <input
+          type="datetime"
+          class="form-control"
+          id="fechaNacimiento"
+          required
+          [(ngModel)]="tutorial.fechaNacimiento"
+          name="fechaNacimiento"
+        />
+      </div>
+      <div>
+        <label for="title">email:</label>
+        <input
+          type="email"
+          class="form-control"
+          id="email"
+          required
+          [(ngModel)]="tutorial.email"
+          name="email"
+        />
+      </div>
+      <div>
+        <label for="title">telefono:</label>
+        <input
+          type="number"
+          class="form-control"
+          id="telefono"
+          required
+          [(ngModel)]="tutorial.telefono"
+          name="telefono"
+        />
+      </div>
+      <div>
+        <label for="title">usuario:</label>
+        <input
+          type="text"
+          class="form-control"
+          id="usuario"
+          required
+          [(ngModel)]="tutorial.usuario"
+          name="usuario"
+        />
+      </div>
+      <div>
+        <label for="title">password:</label>
+        <input
+          type="text"
+          class="form-control"
+          id="password"
+          required
+          [(ngModel)]="tutorial.password"
+          name="password"
+        />
+      </div>
+      <div class="form-group">
+        <label for="description">Ciudad ID:</label>
+        <input
+          class="form-control"
+          id="ciudadId"
+          required
+          [(ngModel)]="tutorial.ciudadId"
+          name="ciudadId"
+        />
+      </div>
+      <div class="form-group">
+        <label for="title">Tipo Documento</label>
+        <input
+          class="form-control"
+          id="tipoDocumentoId"
+          required
+          [(ngModel)]="tutorial.tipoDocumentoId"
+          name="tipoDocumentoId"
+        />
+      </div>
+
+      <button (click)="saveTutorial()" class="btn btn-success">Submit</button>
+    </div>
+
+    <div *ngIf="submitted">
+      <h4>La persona a sido creada!</h4>
+      <button class="btn btn-success" (click)="newTutorial()">Add</button>
+    </div>
+  </div>
+</div>
